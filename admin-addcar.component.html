@@ -1,0 +1,50 @@
+<div class="add-car-container">
+    <h2>Add New Car</h2>
+    <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+        <label>Brand:</label>
+        <input formControlName="brand" type="text" />
+
+        <label>Model:</label>
+        <input formControlName="model" type="text"/>
+
+        <label>Year:</label>
+        <input formControlName="year" type="number"/>
+
+        <label>Price/Day:</label>
+        <input formControlName="pricePerDay" type="text" />
+
+        <label>Fuel Type:</label>
+        <select formControlName="fuelType">
+            <option value="">Select</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Electric">Electirc</option>
+        </select>
+
+        <label>Seating Capacity:</label>
+        <input formControlName="seatingCapacity" type="number"/>
+
+        <label>Mileage (km/l):</label>
+        <input formControlName="mileage" type="number"/>
+
+        <label>Color:</label>
+        <input formControlName="color" type="text"/>
+
+        <label>AC:</label>
+        <select formControlName="ac">
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label>Upload Image:</label>
+        <input type="file" (change)="onImageSelected($event)"/>
+
+        <div *ngIf="imagePreview" class="image-preview">
+            <p>Image Preview:</p>
+            <img [src]="imagePreview" alt="Car Image" />
+        </div>
+
+        <button type="submit">Add Car</button>
+    </form>
+</div>

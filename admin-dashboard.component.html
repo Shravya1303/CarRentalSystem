@@ -1,0 +1,37 @@
+<!-- <div class="d-flex justify-content-between align-items-center p-3 bg-primary text-white rounded-top">
+    <h4 class="mb-0">Admin Dashboard</h4>
+    <div>
+        <button class="btn btn-light me-2" (click)="onAddCar()">Add Car</button>
+        <button class="btn btn-danger" (click)="onLogout()">Log Out</button>
+    </div>
+</div> -->
+
+<div class="p-4 bg-white rounded-bottom">
+    <div *ngIf="cars.length === 0" class="text-center text-muted">
+        No cars added yet.
+    </div>
+
+    <div *ngFor="let car of cars" class="card mb-3 shadow-sm">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img [src]="car.image" class="img-fluid rounded-start" alt="Car Image"/>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Brand:</strong> {{ car.brand }}<br/>
+                        <strong>Model:</strong> {{ car.model }}<br/>
+                        <strong>Year:</strong> {{ car.year }}<br/>
+                        <strong>Price/Day:</strong> Rs.{{ car.pricePerDay }}<br/>
+                        <strong>Fuel Type:</strong> {{ car.fuelType }}<br/>
+                        <strong>Seating Capacity:</strong> {{ car.seatingCapacity }}<br/>
+                        <strong>Mileage:</strong> {{ car.mileage }}<br/>
+                        <strong>Color:</strong> {{ car.color }}<br/>
+                        <strong>AC:</strong> {{ car.ac === 'Yes' ? 'Yes' : 'No' }}<br/>
+                    </p>
+                    <button class="btn btn-outline-danger" (click)="onDeleteCar(car)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
