@@ -1,0 +1,62 @@
+<div class="register-container">
+    <div class="register-card">
+      <h2 class="title">Register</h2>
+   
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" formControlName="name" (blur)="name?.markAsTouched()" />
+          <div class="error" *ngIf="name?.touched && name?.invalid">
+            <small *ngIf="name?.errors?.['required']">Username is required</small>
+            <small *ngIf="name?.errors?.['minlength']">Minimum length is 6</small>
+          </div>
+        </div>
+   
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" formControlName="email" (blur)="email?.markAsTouched()" />
+          <div class="error" *ngIf="email?.touched && email?.invalid">
+            <span *ngIf="email?.errors?.['required']">Email is required.</span>
+            <span *ngIf="email?.errors?.['email']">Invalid email format.</span>
+            <span *ngIf="email?.errors?.['pattern']">Only Gmail address are allowed.</span>
+          </div>
+        </div>
+   
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input id="phone" formControlName="phone" (blur)="phone?.markAsTouched()" />
+          <div class="error" *ngIf="phone?.touched && phone?.invalid">
+            <span *ngIf="phone?.errors?.['required']">Phone number is required.</span>
+            <small *ngIf="phone?.errors?.['startsWithInvalid']">Phone number must start with 6, 7, 8, or 9.</small>
+            <span *ngIf="phone?.errors?.['invalidLength']">Enter a 10-digit phone number.</span>
+          </div>
+        </div>
+   
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" formControlName="password" (blur)="password?.markAsTouched()"/>
+          <div class="error" *ngIf="password?.touched && password?.invalid">
+            <span *ngIf="password?.errors?.['required']">Password is required.</span>
+            <span *ngIf="password?.errors?.['minlength']">Password must be at least 8 characters long.</span>
+          </div>
+        </div>
+   
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" formControlName="confirmPassword" (blur)="confirmPassword?.markAsTouched()" />
+          <div class="error" *ngIf="confirmPassword?.touched && confirmPassword?.invalid">
+            <span *ngIf="confirmPassword?.errors?.['required']">Confirm password is required.</span>
+          </div>
+          <div class="error" *ngIf="form.errors?.['mismatch'] && confirmPassword?.touched">
+            <span>Passwords do not match.</span>
+          </div>
+        </div>
+   
+        <button type="submit" [disabled]="form.invalid">Submit</button>
+   
+        <div class="link">
+          <p>Already have an account? <a routerLink="/login"> Login Here</a></p>
+        </div>
+      </form>
+    </div>
+  </div>

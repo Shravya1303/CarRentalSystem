@@ -1,0 +1,157 @@
+.background-wrapper {
+    position: relative;
+    min-height: 100vh;
+    overflow: visible;
+    padding-top: 10px;     /* Minimal space above */
+    padding-bottom: 10px;  /* Minimal space below */
+  }
+  
+  .background-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('/baleno.jfif');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+    z-index: 1;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 2;
+    padding: 40px 20px; /* Reduced vertical padding */
+  }
+  
+  .why-section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .container.my-5 {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+  }
+  
+  
+  
+  
+  
+  .login-btn {
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .login-btn:hover {
+    background: linear-gradient(to right, #0056b3, #0096c7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+  }
+  .why-section:hover {
+    transition: background-color 0.3s ease;
+  }
+  
+  .selectable-card {
+    transition: transform 0.3s ease;
+  }
+  
+  .selectable-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .about-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .about-link:hover {
+    text-decoration: underline;
+  }
+
+  .customer-feedback-section {
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+}
+
+.customer-feedback-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.feedback-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.2s ease;
+}
+
+.feedback-card:hover {
+  transform: translateY(-5px);
+}
+
+.feedback-card strong {
+  color: #007bff;
+  font-size: 1.1rem;
+}
+
+.feedback-card p {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.customer-feedback-section {
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+}
+
+.customer-feedback-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.feedback-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.feedback-card:hover {
+  transform: translateY(-5px);
+}
+
+.feedback-card strong {
+  color: #007bff;
+  font-size: 1.1rem;
+}
+
+.feedback-card p {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  color: #555;
+}
