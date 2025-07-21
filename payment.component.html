@@ -1,0 +1,35 @@
+<div class="container py-5">
+  <div class="card shadow-lg rounded-4 p-5 bg-white text-dark border-0">
+    <h2 class="text-center text-success mb-5 fw-bold">🎉 Payment Successful!</h2>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div *ngFor="let booking of bookings" class="booking-card mb-4 p-4 border rounded-3 bg-light">
+          <div class="row mb-2">
+            <div class="col-sm-6"><strong>Pickup Date:</strong> {{ booking.pickupDate }}</div>
+            <div class="col-sm-6"><strong>Dropoff Date:</strong> {{ booking.dropoffDate }}</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-6"><strong>Pickup Location:</strong> {{ booking.pickupLocation }}</div>
+            <div class="col-sm-6"><strong>Dropoff Location:</strong> {{ booking.dropoffLocation }}</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-6"><strong>Contact Number:</strong> {{ booking.contactNumber }}</div>
+            <div class="col-sm-6"><strong>Email:</strong> {{ booking.email }}</div>
+          </div>
+          <div class="row">
+            <div class="col-12 text-end fs-5 fw-semibold text-primary mt-4">
+              Total Paid: ₹{{ booking.totalCost }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button class="btn btn-outline-primary px-4 py-2" (click)="backToHome()" [routerLink]="['/dashboard/avaliable']">
+        ⬅ Back to Home
+      </button>
+    </div>
+  </div>
+</div>

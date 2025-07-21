@@ -1,0 +1,41 @@
+<div class="container py-5" style="background-color: #e3f2fd;">
+    <!-- Thank You Banner -->
+    <div class="text-center mb-4">
+      <div class="p-3 bg-info text-white rounded-pill shadow-sm">
+        <h4 class="mb-0">
+          <i class="bi bi-person-check-fill me-2 text-warning"></i>
+          Welcome, {{ user?.name }}!
+        </h4>
+      </div>
+    </div>
+  
+    <!-- Profile Card -->
+    <div class="card border-0 shadow-lg rounded-4">
+      <div class="card-body bg-white p-4">
+        <h5 class="mb-4 text-primary">
+          <i class="bi bi-person-lines-fill me-2"></i>User Profile Details
+        </h5>
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Name:</strong> {{ user?.name }}</li>
+              <li class="list-group-item"><strong>Email:</strong> {{ user?.email }}</li>
+              <li class="list-group-item"><strong>Phone:</strong> {{ user?.phone }}</li>
+              
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Address:</strong> {{ user?.address || 'Hyderabad, India' }}</li>
+              <!-- <li class="list-group-item"><strong>Membership:</strong> {{ user?.membership || 'Standard' }}</li> -->
+              <!-- <li class="list-group-item"><strong>Registered On:</strong> {{ user?.registrationDate || '2025-01-01' }}</li> -->
+              <li class="list-group-item"><strong>User ID:</strong> {{ user?.id }}</li>
+              <li class="list-group-item"><strong>Status:</strong> 
+                <span class="badge bg-success">Active</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

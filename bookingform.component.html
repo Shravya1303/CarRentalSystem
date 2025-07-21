@@ -1,0 +1,63 @@
+<form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+    <a routerLink="/dashboard/avaliable">To Car Details</a>
+  
+    <div class="form-row">
+      <div class="form-group">
+        <label>Pickup Date:</label>
+        <input type="date" formControlName="pickupDate" [min]="minPickupDate" (change)="updateCost()" />
+        <div *ngIf="isFieldInvalid('pickupDate')" class="validation-message">Pickup date is required</div>
+      </div>
+  
+      <div class="form-group">
+        <label>Dropoff Date:</label>
+        <input type="date" formControlName="dropoffDate" (change)="updateCost()" />
+        <div *ngIf="isFieldInvalid('dropoffDate')" class="validation-message">Dropoff date is required</div>
+        <div *ngIf="dateError" class="validation-message">{{ dateError }}</div>
+      </div>
+    </div>
+  
+    <div class="form-row">
+      <div class="form-group">
+        <label>Pickup Location:</label>
+        <input type="text" formControlName="pickupLocation" />
+        <div *ngIf="isFieldInvalid('pickupLocation')" class="validation-message">Pickup location is required</div>
+      </div>
+  
+      <div class="form-group">
+        <label>Dropoff Location:</label>
+        <input type="text" formControlName="dropoffLocation" />
+        <div *ngIf="isFieldInvalid('dropoffLocation')" class="validation-message">Dropoff location is required</div>
+      </div>
+    </div>
+  
+    <div class="form-row">
+      <div class="form-group">
+        <label>Contact Number:</label>
+        <input type="text" formControlName="contactNumber" />
+        <div *ngIf="isFieldInvalid('contactNumber')" class="validation-message">Contact number should be 10 digits and valid</div>
+      </div>
+  
+      <div class="form-group">
+        <label>Email address:</label>
+        <input type="email" formControlName="email" />
+        <div *ngIf="isFieldInvalid('email')" class="validation-message">Valid email is required(Only gmail format)</div>
+      </div>
+    </div>
+  
+    <p>Total Cost: Rs.{{ totalCost }}</p>
+  
+    <div class="form-row">
+      <label>
+        <input type="checkbox" formControlName="terms" />
+        I agree to the terms and conditions
+      </label>
+      <div *ngIf="isFieldInvalid('terms')" class="validation-message">You must agree to the terms</div>
+    </div>
+  
+    <!-- <button type="submit" [disabled]="!bookingForm.valid" [routerLink]="['/dashboard/paymentpage']">
+      Proceed to Payment
+    </button> -->
+    <button type="submit" [disabled]="!bookingForm.valid">
+      Proceed to Payment
+    </button>
+  </form>

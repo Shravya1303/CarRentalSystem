@@ -1,0 +1,16 @@
+.booking-card {
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .booking-card:hover {
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+  }
+  
+  .card {
+    background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+  }
+  
+  .btn-outline-primary {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }

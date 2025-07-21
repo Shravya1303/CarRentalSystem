@@ -1,0 +1,83 @@
+<form [formGroup]="paymentForm" (ngSubmit)="submitPayment()">
+    <div class="payment-methods">
+      <p>Select Payment Method:</p>
+      <div class="method-options">
+        <div class="method-box" [class.selected]="selectedMethod === 'card'" (click)="selectMethod('card')">Credit/Debit Card</div>
+        <div class="method-box" [class.selected]="selectedMethod === 'upi'" (click)="selectMethod('upi')">UPI</div>
+        <div class="method-box" [class.selected]="selectedMethod === 'wallets'" (click)="selectMethod('wallets')">Wallets</div>
+        <div class="method-box" [class.selected]="selectedMethod === 'netbanking'" (click)="selectMethod('netbanking')">Net Banking</div>
+      </div>
+    </div>
+   
+    <!-- Credit/Debit Card Fields -->
+    <div *ngIf="selectedMethod === 'card'">
+      <label>Cardholder Name</label>
+      <input type="text" formControlName="cardholderName" placeholder="John Doe" />
+      <div *ngIf="isFieldInvalid('cardholderName')" class="validation-message">Cardholder name is required.</div>
+   
+      <label>Card Number</label>
+      <input type="text" formControlName="cardNumber" placeholder="1234 5678 9012 3456" />
+      <div *ngIf="isFieldInvalid('cardNumber')" class="validation-message">Card number is required.</div>
+   
+      <label>Expiry Date</label>
+      <input type="text" formControlName="expiryDate" placeholder="MM/YY" />
+      <div *ngIf="isFieldInvalid('expiryDate')" class="validation-message">Expiry date is required.</div>
+   
+      <label>CVV</label>
+      <input type="text" formControlName="cvv" placeholder="123" />
+      <div *ngIf="isFieldInvalid('cvv')" class="validation-message">CVV is required.</div>
+    </div>
+   
+    <!-- UPI Options -->
+    <div *ngIf="selectedMethod === 'upi'">
+      <label>Select UPI App</label>
+      <select formControlName="upiApp">
+        <option value="">--Select--</option>
+        <option value="Google Pay">Google Pay</option>
+        <option value="PhonePe">PhonePe</option>
+        <option value="Paytm">Paytm</option>
+        <option value="Amazon Pay">Amazon Pay</option>
+      </select>
+      <div *ngIf="isFieldInvalid('upiApp')" class="validation-message">Please select a UPI app.</div>
+    </div>
+   
+    <!-- Wallets Options -->
+    <div *ngIf="selectedMethod === 'wallets'">
+      <label>Select Wallet</label>
+      <select formControlName="walletApp">
+        <option value="">--Select--</option>
+        <option value="Paytm">Paytm</option>
+        <option value="PhonePe Wallet">PhonePe Wallet</option>
+        <option value="Amazon Pay">Amazon Pay</option>
+        <option value="Airtel Money">Airtel Money</option>
+        <option value="JioMoney">JioMoney</option>
+      </select>
+      <div *ngIf="isFieldInvalid('walletApp')" class="validation-message">Please select a wallet.</div>
+    </div>
+   
+    <!-- Net Banking Options -->
+    <div *ngIf="selectedMethod === 'netbanking'">
+      <label class="select-bank">Select Bank</label>
+      <select formControlName="bankName">
+        <option value="">--Select--</option>
+        <option value="HDFC Bank">HDFC Bank</option>
+        <option value="ICICI Bank">ICICI Bank</option>
+        <option value="SBI">SBI</option>
+        <option value="Axis Bank">Axis Bank</option>
+        <option value="Kotak">Kotak</option>
+        <option value="Yes Bank">Yes Bank</option>
+        <option value="Bank of Baroda">Bank of Baroda</option>
+        <option value="Punjab National Bank">Punjab National Bank</option>
+      </select>
+      <div *ngIf="isFieldInvalid('bankName')" class="validation-message">Please select a bank.</div>
+    </div>
+   
+    <!-- Terms and Submit -->
+    <label>
+      <input type="checkbox" formControlName="termsAccepted" />
+      I agree to the payment terms and cancellation policy
+    </label>
+    <div *ngIf="isFieldInvalid('termsAccepted')" class="validation-message">You must agree to the terms.</div>
+   
+    <button type="submit" [disabled]="!paymentForm.valid" [routerLink]="['/dashboard/payment']">Pay</button>
+  </form>

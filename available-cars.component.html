@@ -1,0 +1,27 @@
+<div class="container py-5 bg-light-blue">
+    <h2 class="text-center text-primary fw-bold mb-5">🚘 Available Cars for Rent</h2>
+    <div *ngIf="cars.length === 0" class="text-center text-muted">
+      <p>No cars available at the moment.</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let car of cars">
+        <div class="card h-100 shadow-lg border-0 rounded-4 car-card overflow-hidden">
+          <img [src]="car.image" class="card-img-top car-img" alt="{{car.brand}} {{car.model}}">
+          <div class="card-body bg-white">
+            <h5 class="card-title text-primary fw-bold">{{ car.brand }} {{ car.model }} ({{ car.year }})</h5>
+            <ul class="list-unstyled mb-3 text-secondary">
+              <li><strong>💰 Price/Day:</strong> ₹{{ car.pricePerDay }}</li>
+              <li><strong>⛽ Fuel Type:</strong> {{ car.fuelType }}</li>
+              <li><strong>🧍 Seating Capacity:</strong> {{ car.seatingCapacity }}</li>
+              <li><strong>📏 Mileage:</strong> {{ car.mileage }}</li>
+              <li><strong>🎨 Color:</strong> {{ car.color }}</li>
+              <li><strong>❄️ AC:</strong> {{ car.ac ? 'Yes' : 'No' }}</li>
+            </ul>
+            <button class="btn btn-primary w-100 fw-semibold" [routerLink]="['/dashboard/bookingform']" (click)="goToBooking(car)">
+              🚗 Book Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
